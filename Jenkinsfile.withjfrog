@@ -7,7 +7,7 @@ node {
   }
   stage('build') {
      myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
-       sh 'cd complete && dos2unix ./gradlew'
+       sh 'cd complete && gradle wrapper && ./gradlew build'
      }
   }
   stage('test') {
